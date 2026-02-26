@@ -31,7 +31,6 @@ public:
 private:
 
     moveit::planning_interface::MoveGroupInterface move_group_ = moveit::planning_interface::MoveGroupInterface(this->shared_from_this(),"meca500_arm");
-    std::string group_name_ = "meca500_arm";
     std::vector<double> target_joints_1_ = {0.0, M_PI/2.0, 0.0, 0.0, 0.0, 0.0};
     std::vector<double> target_joints_2_ = {0.0, -M_PI/2.0, 0.0, 0.0, 0.0, 0.0};
 };
