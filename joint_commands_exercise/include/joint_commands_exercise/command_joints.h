@@ -23,7 +23,7 @@ public:
     ~CommandJoints() = default;
 
     /**
-     * Main function that moves to desired joint angles 
+     * Main function that moves robot to all desired joint angles 
      */
     void mainJointMovement();
 
@@ -34,7 +34,7 @@ public:
     void moveJoints(std::vector<double> & joint_angles);
     
 private:
-
+    moveit::planning_interface::MoveGroupInterface::Plan plan_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
     std::vector<double> target_joints_1_ = {M_PI/2.0, 0.0,  0.0, 0.0, 0.0, 0.0};
     std::vector<double> target_joints_2_ = {-M_PI/2.0, 0.0, 0.0, 0.0, 0.0, 0.0};
