@@ -1,8 +1,7 @@
 #include <joint_commands_exercise/command_joints.h>
 
 CommandJoints::CommandJoints() : Node("joint_commands")
-{
-    // CREATE THE PLANNING INTERFACE 
+{ 
     // MOVE JOINTS TO FIRST JOINT CONFIGURATION
     // MOVE JOINTS TO SECOND JOINT CONFIGURATION
 }
