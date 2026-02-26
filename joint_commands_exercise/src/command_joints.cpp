@@ -2,14 +2,24 @@
 
 CommandJoints::CommandJoints() : Node("joint_commands")
 {
-    // CREATE THE PLANNING INTERFACE 
-    // MOVE JOINTS TO FIRST JOINT CONFIGURATION
-    // MOVE JOINTS TO SECOND JOINT CONFIGURATION
+    moveJoints(target_joints_1_);
+    moveJoints(target_joints_2_);
 }
 
 void CommandJoints::moveJoints(std::vector<double> & joint_angles)
 {
-    // INSERT CODE HERE!
+    moveit::planning_interface::MoveGroupInterface::Plan plan;
+    move_group_.setJointValueTarget(joint_angles);
+
+    if (move_group_.plan(plan) == moveit::core::MoveItErrorCode::SUCCESS)
+    {
+        move_group_.execute(plan);
+    }
+    else
+    {
+        RCLCPP_INFO(this->get_logger(), "Plan failed");
+    }
+
 }
 
 int main(int argc, char** argv)
