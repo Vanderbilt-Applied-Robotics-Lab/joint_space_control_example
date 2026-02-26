@@ -34,10 +34,9 @@ public:
     void moveJoints(std::vector<double> & joint_angles);
     
 private:
-    moveit::planning_interface::MoveGroupInterface::Plan plan_;
-    std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
-    std::vector<double> target_joints_1_ = {M_PI/2.0, 0.0,  0.0, 0.0, 0.0, 0.0};
-    std::vector<double> target_joints_2_ = {-M_PI/2.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    // declare plan
+    // declare movegroup
+    // setup target joint angles
 };
 
 #endif // COMMAND_JOINTS
