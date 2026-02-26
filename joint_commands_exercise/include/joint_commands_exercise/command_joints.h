@@ -23,6 +23,11 @@ public:
     ~CommandJoints() = default;
 
     /**
+     * Main function that moves to desired joint angles 
+     */
+    void mainJointMovement();
+
+    /**
      * Moves joints to specified angles
      * @param joint_angles desired joint angles
      */
@@ -30,9 +35,9 @@ public:
     
 private:
 
-    moveit::planning_interface::MoveGroupInterface move_group_ = moveit::planning_interface::MoveGroupInterface(this->shared_from_this(),"meca500_arm");
-    std::vector<double> target_joints_1_ = {0.0, M_PI/2.0, 0.0, 0.0, 0.0, 0.0};
-    std::vector<double> target_joints_2_ = {0.0, -M_PI/2.0, 0.0, 0.0, 0.0, 0.0};
+    std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
+    std::vector<double> target_joints_1_ = {M_PI/2.0, 0.0,  0.0, 0.0, 0.0, 0.0};
+    std::vector<double> target_joints_2_ = {-M_PI/2.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 };
 
 #endif // COMMAND_JOINTS

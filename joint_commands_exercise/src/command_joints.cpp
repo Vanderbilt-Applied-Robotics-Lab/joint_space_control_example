@@ -2,6 +2,13 @@
 
 CommandJoints::CommandJoints() : Node("joint_commands")
 {
+}
+
+void CommandJoints::mainJointMovement()
+{
+    move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
+            shared_from_this(), "rv_3s_arm");
+
     moveJoints(target_joints_1_);
     moveJoints(target_joints_2_);
 }
@@ -9,11 +16,12 @@ CommandJoints::CommandJoints() : Node("joint_commands")
 void CommandJoints::moveJoints(std::vector<double> & joint_angles)
 {
     moveit::planning_interface::MoveGroupInterface::Plan plan;
-    move_group_.setJointValueTarget(joint_angles);
+    
+    move_group_->setJointValueTarget(joint_angles);
 
-    if (move_group_.plan(plan) == moveit::core::MoveItErrorCode::SUCCESS)
+    if (move_group_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS)
     {
-        move_group_.execute(plan);
+        move_group_->execute(plan);
     }
     else
     {
@@ -29,7 +37,10 @@ int main(int argc, char** argv)
     
     // create instance of class
     auto node = std::make_shared<CommandJoints>();
+
+    node->mainJointMovement();
     
+    rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;
 }
