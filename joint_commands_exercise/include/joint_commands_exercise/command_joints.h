@@ -2,8 +2,7 @@
 #define COMMAND_JOINTS
 
 #include <rclcpp/rclcpp.hpp>
-#include <moveit/move_group_interface/move_group_interface.h>
-#include <moveit/planning_scene_interface/planning_scene_interface.h>
+// INSERT INCLUDES HERE 
 #include <cmath>
 
 /**
@@ -32,11 +31,15 @@ public:
      * @param joint_angles desired joint angles
      */
     void moveJoints(std::vector<double> & joint_angles);
+
+    /**
+     * prints the transforms
+     *
+     */
+    void printTransform();
     
 private:
-    // declare plan
-    // declare movegroup
-    // setup target joint angles
+    // INSERT CODE HERE
 };
 
 #endif // COMMAND_JOINTS
