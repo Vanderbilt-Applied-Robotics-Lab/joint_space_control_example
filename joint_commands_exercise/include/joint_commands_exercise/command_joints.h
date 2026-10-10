@@ -3,7 +3,6 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
-#include <moveit/planning_scene_interface/planning_scene_interface.h>
 #include "tf2_ros/transform_listener.h"
 #include "tf2_ros/buffer.h"
 #include <cmath>
@@ -42,6 +41,7 @@ public:
     void printTransform();
     
 private:
+<<<<<<< HEAD
     moveit::planning_interface::MoveGroupInterface::Plan plan_;
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
     std::vector<double> target_joints_1_ = {M_PI/2.0, 0.0,  0.0, 0.0, 0.0, 0.0};
@@ -50,6 +50,9 @@ private:
     // transform stuff
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
     std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
+=======
+    // INSERT CODE HERE
+>>>>>>> main
 };
 
 #endif // COMMAND_JOINTS
