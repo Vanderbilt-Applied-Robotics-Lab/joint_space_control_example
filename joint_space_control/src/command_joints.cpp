@@ -13,9 +13,9 @@ void CommandJoints::mainJointMovement()
             shared_from_this(), "meca500_arm");
 
     moveJoints(target_joints_1_);
-    CommandJoints::printTransform();
+    printTransform();
     moveJoints(target_joints_2_);
-    CommandJoints::printTransform();
+    printTransform();
 }
 
 void CommandJoints::moveJoints(std::vector<double> & joint_angles)

@@ -11,7 +11,7 @@ Example of commanding the meca500 robot in joint space using MoveIt
 
 ## Running Code
 ### Simulated Robot
-1. Navigate to meca500 workspace: `cd ~/workspaces/meca500_ws`
+1. Navigate to meca500 workspace: `cd ~/workspaces/meca_ws`
 2. Source the meca500 workspace: `source install/setup.bash`
 3. Launch the meca500 robot: `ros2 launch meca500_bringup moveit.launch.py simulation:=true`
 4. Open a new terminal window
@@ -21,7 +21,7 @@ Example of commanding the meca500 robot in joint space using MoveIt
 
 ## Real Robot
 1. Connect the meca500 to your computer and turn on power(see quickstart guide)
-2. Navigate to meca500 workspace: `cd ~/workspaces/meca500_ws`
+2. Navigate to meca500 workspace: `cd ~/workspaces/meca_ws`
 3. Source the meca500 workspace: `source install/setup.bash`
 4. Launch the meca500 robot: `ros2 launch meca500_bringup moveit.launch.py simulation:=false`
 5. Wait for robot to release brakes and home. Restart code if robot does not go to home pose.
